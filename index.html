@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Bibliothèque d'objets</title>
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<script src="js/snap.svg-min.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+	</head>
+<body>
+	<header><h1>Bibliothèque d'Objets - Reboot Factory</h1></header>
+	<div class="objet1">
+		<div class="section1">
+			Un bouton de publication qui montre en même temps la progression. Il y a deux type de bouton, un bouton qui valide bien la publication et un qui annonce que ça s'est mal validé.
+		</div>	
+		<div class="section2">
+			<div class="progress-button">
+				<button><span>Publier</span></button>
+					<svg class="progress-circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/></svg>
+					<svg class="checkmark" width="70" height="70"><path d="m31.5,46.5l15.3,-23.2"/><path d="m31.5,46.5l-8.5,-7.1"/></svg>
+					<svg class="cross" width="70" height="70"><path d="m35,35l-9.3,-9.3"/><path d="m35,35l9.3,9.3"/><path d="m35,35l-9.3,9.3"/><path d="m35,35l9.3,-9.3"/></svg>
+			</div><!-- /progress-button -->
+					<!-- progress button -->
+			<div class="progress-button">
+				<button><span>Publier votre souvenir</span></button>
+					<svg class="progress-circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/></svg>
+					<svg class="checkmark" width="70" height="70"><path d="m31.5,46.5l15.3,-23.2"/><path d="m31.5,46.5l-8.5,-7.1"/></svg>
+					<svg class="cross" width="70" height="70"><path d="m35,35l-9.3,-9.3"/><path d="m35,35l9.3,9.3"/><path d="m35,35l-9.3,9.3"/><path d="m35,35l9.3,-9.3"/></svg>
+			</div><!-- /progress-button -->
+		</div>
+	</div>	
+
+	<div class="objet2">
+		<div class="section1">
+			Une zone de connexion intéractive. 
+		</div>
+		<div class="section2">
+			<form class="form-5 clearfix">
+				    <p>
+				        <input type="text" id="login" name="login" placeholder="Username">
+				        <input type="password" name="password" id="password" placeholder="Password"> 
+				    </p>
+				    <button type="submit" name="submit">
+				    	<i class="icon-arrow-right"></i>
+				    	<span>Sign in</span>
+				    </button>     
+				</form>​​​​
+		</div>	
+	</div>	
+
+	<div class="objet3">
+		<div class="section1">
+			Un outil de recherche qui s'ouvre et se ferme comme celui de Twitter afin de prendre le moins de place possible. 
+		</div>
+		<div class="section2">
+			<div id="sb-search" class="sb-search">
+						<form>
+							<input class="sb-search-input" placeholder="Enter your search term..." type="text" value="" name="search" id="search">
+							<input class="sb-search-submit" type="submit" value="">
+							<span class="sb-icon-search"></span>
+						</form>
+			</div>
+		</div>	
+	</div>	
+
+	<div class="objet4">
+		<div class="section1">
+			Une mise en page stylée pour faire apparaître les différents souvenirs. 
+		</div>	
+		<div class="section2">
+			<section id="grid" class="grid clearfix">
+			<a href="#" data-path-hover="m 0,0 0,47.7775 c 24.580441,3.12569 55.897012,-8.199417 90,-8.199417 34.10299,0 65.41956,11.325107 90,8.199417 L 180,0 z">
+					<figure>
+						<img src="img/2.png" />
+						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,0 0,171.14385 c 24.580441,15.47138 55.897012,24.75772 90,24.75772 34.10299,0 65.41956,-9.28634 90,-24.75772 L 180,0 0,0 z"/></svg>
+						<figcaption>
+							<h2>PSEUDO</h2>
+							<p>Un magnifique moment passé avec mon amoureux à Namur</p>
+						</figcaption>
+					</figure>
+				</a>
+				</section>
+		</div>
+
+	</div>	
+
+	<div class="objet5">
+		<div class="section1">
+			Une carte géolocalisée. 
+		</div>
+		<div class="section2">
+			<div class="wrapper">
+
+	  <div class="app">
+	  	<div id="infobox" class="infobox"></div>
+	  	<div id="map">To get this app to work you need to share your geolocation.</div>
+	  </div>
+	</div>
+		</div>	
+	</div>	
+
+
+	<script src="js/classie.js"></script>
+		<script src="js/uiProgressButton.js"></script>
+		<script>
+			[].slice.call( document.querySelectorAll( '.progress-button' ) ).forEach( function( bttn, pos ) {
+				new UIProgressButton( bttn, {
+					callback : function( instance ) {
+						var progress = 0,
+							interval = setInterval( function() {
+								progress = Math.min( progress + Math.random() * 0.1, 1 );
+								instance.setProgress( progress );
+
+								if( progress === 1 ) {
+									instance.stop( pos === 1 || pos === 3 ? -1 : 1 );
+									clearInterval( interval );
+								}
+							}, 150 );
+					}
+				} );
+			} );
+		</script>
+ 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$('input, textarea').placeholder();
+		});
+		</script>
+
+		<script src="js/classie.js"></script>
+		<script src="js/uisearch.js"></script>
+		<script>
+			new UISearch( document.getElementById( 'sb-search' ) );
+		</script>
+
+		<script>
+			(function() {
+	
+				function init() {
+					var speed = 330,
+						easing = mina.backout;
+
+					[].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
+						var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
+							pathConfig = {
+								from : path.attr( 'd' ),
+								to : el.getAttribute( 'data-path-hover' )
+							};
+
+						el.addEventListener( 'mouseenter', function() {
+							path.animate( { 'path' : pathConfig.to }, speed, easing );
+						} );
+
+						el.addEventListener( 'mouseleave', function() {
+							path.animate( { 'path' : pathConfig.from }, speed, easing );
+						} );
+					} );
+				}
+
+				init();
+
+			})();
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script src="./js/lib/leaflet.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="./js/application.js"></script>
+
+</body>
+</html>
+
